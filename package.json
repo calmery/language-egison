@@ -1,12 +1,8 @@
 {
   "name": "language-egison",
   "version": "0.0.0",
-  "description": "A short description of your language package",
-  "keywords": [
-    "language",
-    "grammar"
-  ],
-  "repository": "https://github.com/atom/language-egison",
+  "description": "Syntax highlighting for the language Egison",
+  "repository": "https://github.com/calmery/language-egison",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
