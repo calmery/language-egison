@@ -3,4 +3,7 @@
 
 '.source.egison':
   'editor':
-    'commentStart': '@@ '
+    'commentStart': ';'
+    'tabLength': 2
+  'bracket-matcher':
+    'autocompleteBrackets': false

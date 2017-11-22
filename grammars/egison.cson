@@ -2,13 +2,199 @@
 #   - http://manual.macromates.com/en/language_grammars
 
 'scopeName': 'source.egison'
-'name': 'PackageName'
+'name': 'Egison'
 'fileTypes': [
-  'extension'
+  'egi'
 ]
 'patterns': [
   {
-    'match': '^\\s*@@.*$'
-    'name': 'comment'
+    'include': '#comment'
+  }
+  {
+    'include': '#constant'
+  }
+  {
+    'include': '#string'
+  }
+  {
+    'include': '#variable'
+  }
+  {
+    'include': '#parentheses'
+  }
+  {
+    'include': '#brackets'
+  }
+  {
+    'include': '#braces'
   }
 ]
+'repository':
+  'comment':
+    'begin': ';'
+    'end': '$'
+    'name': 'comment.line.egison'
+  'constant':
+    'patterns': [
+      {
+        'match': '\\bundefined\\b'
+        'name': 'constant.language.undefined.egison'
+      }
+      {
+        'match': '(#(t|f))\\b'
+        'name': 'constant.language.boolean.egison'
+      }
+      {
+        'match': '(-?\\d+(\\.\\d+)?((\\+|\\-)(\\d+)?i)?/-?\\d+(\\.\\d+)?((\\+|\\-)(\\d+)?i)?)'
+        'name': 'constant.numeric.rational.egison'
+      }
+      {
+        'match': '(-?\\d+\\.\\d+((\\+|\\-)(\\d+)?i)?)'
+        'name': 'constant.numeric.float.clojure'
+      }
+      {
+        'match': '(-?\\d+((\\+|\\-)(\\d+)?i)?)'
+        'name': 'constant.numeric.integer.clojure'
+      }
+    ]
+  'string':
+    'patterns': [
+      {
+        'begin': '\''
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.character.begin.egison'
+        'end': '\''
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.character.end.egison'
+        'name': 'string.character.egison'
+      }
+      {
+        'begin': '"'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.egison'
+        'end': '"'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.egison'
+        'name': 'string.egison'
+      }
+    ]
+  'variable':
+    'patterns': [
+      {
+        'match': '\\$((\\w+|/|\\||\\?|\\-|\\+|\\*|\\.)+)'
+        'name': 'variable.egison'
+      }
+    ]
+  'braces':
+    'patterns': [
+      {
+        'begin': '{\\|'
+        'beginCaptures':
+          '0':
+            'name': 'braces.double.start.egison'
+        'end': '\\|}'
+        'endCaptures':
+          '0':
+            'name': 'braces.double.end.egison'
+        'name': 'braces.double.egison'
+        'patterns': [
+          {
+            'include': '$self'
+          }
+        ]
+      }
+      {
+        'begin': '{'
+        'beginCaptures':
+          '0':
+            'name': 'braces.start.egison'
+        'end': '}'
+        'endCaptures':
+          '0':
+            'name': 'braces.end.egison'
+        'name': 'braces.egison'
+        'patterns': [
+          {
+            'include': '$self'
+          }
+        ]
+      }
+    ]
+  'parentheses':
+    'patterns': [
+      {
+        'begin': '\\(\\s*((\\w+|/|\\||\\?|\\-|\\+|\\*|\\.)+)'
+        'beginCaptures':
+          '0':
+            'name': 'parentheses.start.egison'
+          '1':
+            'name': 'keyword.control.egison'
+        'end': '\\)'
+        'endCaptures':
+          '0':
+            'name': 'parentheses.end.egison'
+        'name': 'parentheses.egison'
+        'patterns': [
+          {
+            'include': '$self'
+          }
+        ]
+      }
+    ]
+  'brackets':
+    'patterns': [
+      {
+        'begin': '<\\s*((\\w+|/|\\||\\?|\\-|\\+|\\*|\\.)+)'
+        'beginCaptures':
+          '0':
+            'name': 'brackets.start.egison'
+          '1':
+            'name': 'keyword.control.egison'
+        'end': '>'
+        'endCaptures':
+          '0':
+            'name': 'brackets.end.egison'
+        'name': 'brackets.egison'
+        'patterns': [
+          {
+            'include': '$self'
+          }
+        ]
+      }
+      {
+        'begin': '\\[\\|'
+        'beginCaptures':
+          '0':
+            'name': 'brackets.double.start.egison'
+        'end': '\\|\\]'
+        'endCaptures':
+          '0':
+            'name': 'brackets.double.end.egison'
+        'name': 'brackets.double.egison'
+        'patterns': [
+          {
+            'include': '$self'
+          }
+        ]
+      }
+      {
+        'begin': '\\['
+        'beginCaptures':
+          '0':
+            'name': 'brackets.square.start.egison'
+        'end': '\\]'
+        'endCaptures':
+          '0':
+            'name': 'brackets.square.end.egison'
+        'name': 'brackets.square.egison'
+        'patterns': [
+          {
+            'include': '$self'
+          }
+        ]
+      }
+    ]
