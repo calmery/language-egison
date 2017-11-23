@@ -14,10 +14,10 @@
     'include': '#constant'
   }
   {
-    'include': '#string'
+    'include': '#variable'
   }
   {
-    'include': '#variable'
+    'include': '#string'
   }
   {
     'include': '#parentheses'
@@ -45,30 +45,28 @@
         'name': 'constant.language.boolean.egison'
       }
       {
-        'match': '(-?\\d+(\\.\\d+)?((\\+|\\-)(\\d+)?i)?/-?\\d+(\\.\\d+)?((\\+|\\-)(\\d+)?i)?)'
+        'match': '\\b(-?\\d+(\\.\\d+)?((\\+|\\-)(\\d+)?i)?/-?\\d+(\\.\\d+)?((\\+|\\-)(\\d+)?i)?)\\b'
         'name': 'constant.numeric.rational.egison'
       }
       {
-        'match': '(-?\\d+\\.\\d+((\\+|\\-)(\\d+)?i)?)'
+        'match': '\\b(-?\\d+\\.\\d+((\\+|\\-)(\\d+)?i)?)\\b'
         'name': 'constant.numeric.float.clojure'
       }
       {
-        'match': '(-?\\d+((\\+|\\-)(\\d+)?i)?)'
+        'match': '\\b(-?\\d+((\\+|\\-)(\\d+)?i)?)\\b'
         'name': 'constant.numeric.integer.clojure'
       }
     ]
   'string':
     'patterns': [
       {
-        'begin': '\''
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.definition.string.character.begin.egison'
-        'end': '\''
-        'endCaptures':
-          '0':
-            'name': 'punctuation.definition.string.character.end.egison'
-        'name': 'string.character.egison'
+        'match': '(\')(.)(\')'
+        'captures':
+          '1':
+            'name': 'punctuation.definition.character.begin.egison'
+          '3':
+            'name': 'punctuation.definition.character.end.egison'
+        'name': 'punctuation.definition.string.character.egison'
       }
       {
         'begin': '"'
@@ -85,7 +83,7 @@
   'variable':
     'patterns': [
       {
-        'match': '\\$((\\w+|/|\\||\\?|\\-|\\+|\\*|\\.)+)'
+        'match': '\\$((\\w+|/|\\||\\?|\\-|\\+|\\*|\\.|#|%|\'|~)+)'
         'name': 'variable.egison'
       }
     ]
@@ -127,7 +125,7 @@
   'parentheses':
     'patterns': [
       {
-        'begin': '\\(\\s*((\\w+|/|\\||\\?|\\-|\\+|\\*|\\.)+)'
+        'begin': '\\(\\s*((\\w+|/|\\||\\?|\\-|\\+|\\*|\\.|#|%|\')+)'
         'beginCaptures':
           '0':
             'name': 'parentheses.start.egison'
@@ -148,7 +146,7 @@
   'brackets':
     'patterns': [
       {
-        'begin': '<\\s*((\\w+|/|\\||\\?|\\-|\\+|\\*|\\.)+)'
+        'begin': '<\\s*((\\w+|/|\\||\\?|\\-|\\+|\\*|\\.|#|%|\')+)'
         'beginCaptures':
           '0':
             'name': 'brackets.start.egison'
