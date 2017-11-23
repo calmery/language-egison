@@ -1,2 +1,2 @@
 # Egison language support in Atom
-Syntax highlighting for the language Egison.
+Adds syntax highlighting and snippets to Egison files in Atom.
