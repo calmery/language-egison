@@ -2,6 +2,124 @@
 # https://github.com/atom/language-gfm/blob/master/snippets/gfm.cson
 
 '.source.egison':
-  'Method documentation':
-    'prefix': 'doc'
-    'body': '@@ ${1:method} - ${2:description}'
+  # Basics of Syntax and Semantics
+  # Top Expressions
+  'define expressions':
+    'prefix': 'define'
+    'body': '(define $${1:variable} ${2:value})'
+  'test expressions':
+    'prefix': 'test'
+    'body': '(test ${1:expression})'
+  'load expressions':
+    'prefix': 'load'
+    'body': '(load ${1:libraries})'
+  'load-file expressions':
+    'prefix': 'load-file'
+    'body': '(load-file ${1:filepath})'
+  # Objects
+  'Inductive Data':
+    'prefix': 'inductive'
+    'body': '<${1:identifier} ${2:value} ${3:...}>'
+  'Tuples ( Multiple Values )':
+    'prefix': 'tuple'
+    'body': '[${1:value} ${2:...}]'
+  'Collections':
+    'prefix': 'collection'
+    'body': '{${1:value} ${2:...}}'
+  'Array':
+    'prefix': 'array'
+    'body': '[|${1:value} ${2:...}|]'
+  'Hash':
+    'prefix': 'hash'
+    'body': '{|[${1:key} ${2:value}] ${3:...}|}'
+  # Syntax of Egison
+  'lambda expressions':
+    'prefix': 'lambda'
+    'body': '(lambda [$${1:variable} ${2:...}] ${3:formula})'
+  'let expressions':
+    'prefix': 'let'
+    'body': '(let {[$${1:variable} ${2:formula}] ${3:...}} ${4:formula})'
+  'let* expressions':
+    'prefix': 'let*'
+    'body': '(let* {[$${1:variable} ${2:formula}] ${3:...}} ${4:formula})'
+  'letrec expressions':
+    'prefix': 'letrec'
+    'body': '(letrec {[$${1:variable} ${2:formula}] ${3:...}} ${4:formula})'
+  'if expressions':
+    'prefix': 'if'
+    'body': '(if ${1:boolean} ${2:formula} ${3:formula})'
+  'apply expressions':
+    'prefix': 'apply'
+    'body': '(apply ${1:function} [${2:value} ${3:...}])'
+  'generate-array expressions':
+    'prefix': 'generate-array'
+    'body': '(generate-array [${1:variable} ${2:...}] [${3:integer} ${4:...}] ${5:formula})'
+  'array-size expressions':
+    'prefix': 'array-size'
+    'body': '(array-size ${1:array})'
+  'seq expressions':
+    'prefix': 'seq'
+    'body': '(seq ${1:expr} ${2:expr})'
+  # Basics of Patterns : Syntax and Semantics
+  # Patterns
+  'Wildcard':
+    'prefix': 'wildcard'
+    'body': '_'
+  'Indexed Pattern Variables':
+    'prefix': 'indexed-pattern'
+    'body': '$${1:identifier_integer}'
+  'Value Patterns':
+    'prefix': 'value-pattern'
+    'body': ',${1:expr}'
+  'Predicate Pattern':
+    'prefix': 'predicate-pattern'
+    'body': '?${1:predicate}'
+  'Not-Patterns':
+    'prefix': 'not-pattern'
+    'body': '!${1:pattern}'
+  'And-Patterns':
+    'prefix': 'and-pattern'
+    'body': '(& ${1:pattern} ${2:...})'
+  'Or-Patterns':
+    'prefix': 'or-pattern'
+    'body': '(| ${1:pattern} ${2:...})'
+  'Let Patterns':
+    'prefix': 'let-pattern'
+    'body': '(let {[$${1:variable} ${2:expr}] ${3:...}} ${4:pattern})'
+  'Loop-Patterns':
+    'prefix': 'loop-pattern'
+    'body': '(loop $${1:identifier} ${2:range} ${3:pattern} ${4:pattern})'
+  # Syntax Related with Patterns
+  'match-all Expressions':
+    'prefix': 'match-all'
+    'body': '(match-all ${1:target-expr} ${2:matcher-expr} [${3:pattern} ${4:expr}])'
+  'match Expressions':
+    'prefix': 'match'
+    'body': '(match ${1:target-expr} ${2:matcher-expr} {[${3:pattern} ${4:expr}] ${5:...}})'
+  'match-lambda Expressions':
+    'prefix': 'match-lambda'
+    'body': '(match-lambda ${1:matcher-expr} {[${2:pattern} ${3:expr}] ${4:...}})'
+  'match-all-lambda Expressions':
+    'prefix': 'match-all-lambda'
+    'body': '(match-all-lambda ${1:matcher-expr} [${2:pattern} ${3:expr}])'
+  'pattern-function Expressions':
+    'prefix': 'pattern-function'
+    'body': '(pattern-function [$${1:variable ...}] ${2:pattern})'
+  # Pattern Matching
+  # Pattern-Matching against Non-Free Data Types!
+  'The cons Pattern Constructor':
+    'prefix': 'cons'
+    'body': '<cons $${1:variable} $${2:variable}>'
+  'The join Pattern Constructor':
+    'prefix': 'join'
+    'body': '<join $${1:variable} $${2:variable}>'
+  'The snoc Pattern Constructor':
+    'prefix': 'snoc'
+    'body': '<snoc $${1:variable} $${2:variable}>'
+  'The nioj Pattern Constructor':
+    'prefix': 'nioj'
+    'body': '<nioj $${1:variable} $${2:variable}>'
+  # Basics of I/O
+  'do Expressions':
+    'prefix': 'do'
+    'body': '(do {${1:statement} ${2:...}} ${3:expr})'
