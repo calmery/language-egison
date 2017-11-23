@@ -62,21 +62,6 @@
     'body': '(seq ${1:expr} ${2:expr})'
   # Basics of Patterns : Syntax and Semantics
   # Patterns
-  'Wildcard':
-    'prefix': 'wildcard'
-    'body': '_'
-  'Indexed Pattern Variables':
-    'prefix': 'indexed-pattern'
-    'body': '$${1:identifier_integer}'
-  'Value Patterns':
-    'prefix': 'value-pattern'
-    'body': ',${1:expr}'
-  'Predicate Pattern':
-    'prefix': 'predicate-pattern'
-    'body': '?${1:predicate}'
-  'Not-Patterns':
-    'prefix': 'not-pattern'
-    'body': '!${1:pattern}'
   'And-Patterns':
     'prefix': 'and-pattern'
     'body': '(& ${1:pattern} ${2:...})'
@@ -105,20 +90,6 @@
   'pattern-function Expressions':
     'prefix': 'pattern-function'
     'body': '(pattern-function [$${1:variable ...}] ${2:pattern})'
-  # Pattern Matching
-  # Pattern-Matching against Non-Free Data Types!
-  'The cons Pattern Constructor':
-    'prefix': 'cons'
-    'body': '<cons $${1:variable} $${2:variable}>'
-  'The join Pattern Constructor':
-    'prefix': 'join'
-    'body': '<join $${1:variable} $${2:variable}>'
-  'The snoc Pattern Constructor':
-    'prefix': 'snoc'
-    'body': '<snoc $${1:variable} $${2:variable}>'
-  'The nioj Pattern Constructor':
-    'prefix': 'nioj'
-    'body': '<nioj $${1:variable} $${2:variable}>'
   # Basics of I/O
   'do Expressions':
     'prefix': 'do'
