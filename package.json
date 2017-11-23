@@ -1,6 +1,6 @@
 {
   "name": "egison-syntax",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Egison language support in Atom",
   "repository": "https://github.com/calmery/language-egison",
   "license": "MIT",
